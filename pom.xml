@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>isi.essaady.projectsmanagement</groupId>
+        <artifactId>projectsmanagement-master</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    
+    <artifactId>projectsmanagement-application</artifactId>
+    <packaging>ear</packaging>
+
+    <name>ProjectsManagement-Application</name>
+    
+    <dependencies>
+        <dependency>
+            <groupId>isi.essaady.projectsmanagement</groupId>
+            <artifactId>projectsmanagement-web</artifactId>
+            <type>war</type>
+        </dependency>
+        
+        <dependency>
+            <groupId>isi.essaady.projectsmanagement</groupId>
+            <artifactId>projectsmanagement-ejb</artifactId>
+            <type>ejb</type>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <modules>
+                        <webModule>
+                            <groupId>isi.essaady.projectsmanagement</groupId>
+                            <artifactId>projectsmanagement-web</artifactId>
+                        </webModule>
+                        <ejbModule>
+                            <groupId>isi.essaady.projectsmanagement</groupId>
+                            <artifactId>projectsmanagement-ejb</artifactId>
+                        </ejbModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>
